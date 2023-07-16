@@ -14,26 +14,26 @@ async function validator(email, otpReq , token , otpExists){
     //check if email, otp and verification token was sent in the request body
 
     if(!email || !token || !otpReq){
-        return [false,`Verification failed.Kindly ensure that the email, otp and token fields are all supplied.`];
+        return [false,`Verification failed.Kindly ensure that the email, otp and token fields are all supplied`];
     };
 
     //check if email is of type email
 
     if(!emailChecker(email)){
-        return [false,`Verification failed.Kindly supply a valid email address.`];
+        return [false,`Verification failed.Kindly supply a valid email address`];
     };
 
      //check length of OTP:
 
      if(otpReq.length !== 6){
-        return [false,`Verification Failed. Invalid OTP length`];
+        return [false,`Verification Failed. Invalid OTP`];
     };
 
 
      //check token length:
 
      if(token.length !== 96){
-        return [false,`Verification failed.Invalid token, LENGTH less than 96.`];
+        return [false,`Verification failed.Invalid token`];
     };
 
 
@@ -42,7 +42,7 @@ async function validator(email, otpReq , token , otpExists){
 
 
      if(otpExists === null){
-         return [false,`Verification failed. OTP Invalid,not existing in DB.`] ;
+         return [false,`Verification failed. Invalid OTP`] ;
      };
 
 
@@ -57,7 +57,7 @@ async function validator(email, otpReq , token , otpExists){
 
 
       if(otpExists.hash !== token){
-          return [false,`Verification failed. Invalid token, supplied token is not what is associated with OTP.`];
+          return [false,`Verification failed. Invalid token`];
       };
 
 
