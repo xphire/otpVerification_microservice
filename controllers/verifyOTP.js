@@ -10,7 +10,7 @@ const verifyOTP = async (req,res,next) => {
     try {
 
         //define validator function parameters to use
-
+ 
         const email = req.body.email;
 
         const token = req.body.token;

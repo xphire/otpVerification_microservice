@@ -35,7 +35,7 @@ const generateOTP = async (req,res,next) =>{
 
     //save otp to database
 
-    const schema = await Schema.create(databasePayload)
+     await Schema.create(databasePayload)
 
 
     //send mail here
